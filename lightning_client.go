@@ -1337,6 +1337,15 @@ type PendingHtlc struct {
 	Amount btcutil.Amount
 }
 
+// PendingHtlc represents a HTLC that is currently pending on some channel.
+type PendingHtlc struct {
+	// Incoming is true if the HTLC is incoming.
+	Incoming bool
+
+	// Amount is the amount in satoshis that this HTLC represents.
+	Amount btcutil.Amount
+}
+
 // LookupInvoice looks up an invoice in lnd, it will error if the invoice is
 // not known to lnd.
 func (s *lightningClient) LookupInvoice(ctx context.Context,
